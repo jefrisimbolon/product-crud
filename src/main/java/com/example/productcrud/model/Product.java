@@ -2,27 +2,24 @@ package com.example.productcrud.model;
 
 import java.time.LocalDate;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "products")
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false, length = 200)
     private String name;
 
     @Enumerated(EnumType.STRING)
-    @Column(length = 50)
+    @Column(nullable = false)
     private Category category;
-
     private long price;
-
     private int stock;
 
     @Column(columnDefinition = "TEXT")
